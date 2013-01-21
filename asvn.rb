@@ -9,6 +9,7 @@ module ASVN
     attr_accessor :login
     attr_accessor :password
     attr_accessor :scc
+    @VERSION = 0.0.1
 
     def initialize(login,password)
       @login = login
@@ -17,6 +18,10 @@ module ASVN
       @scc.add_simple_provider
       @scc.auth_baton[Svn::Core::AUTH_PARAM_DEFAULT_USERNAME] = @login
       @scc.auth_baton[Svn::Core::AUTH_PARAM_DEFAULT_PASSWORD] = @password
+    end
+
+    def version
+      @VERSION
     end
 
     #svn list svn://uri
