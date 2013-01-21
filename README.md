@@ -1,33 +1,29 @@
-ASVN
-====
+# Asvn
 
-tiny svn library(wrapper)
+TODO: Write a gem description
 
-REQUIREMENTS
-------------
+## Installation
 
-####Linux####
-  Redhat and Fedora: **yum install subversion-ruby**  
-  Ubuntu and Debian: **apt-get install libsvn-ruby**
-####OS X####
-  sudo port install subversion-rubybindings
+Add this line to your application's Gemfile:
 
-**AND**
-####  On both:####
-  **gem install svn**
+    gem 'asvn'
 
+And then execute:
 
-### EXAMPLE ###
-    #!/usr/bin/env ruby
-    require '../asvn.rb'
-    svn = ASVN::Asvn.new('LOGIN','PASSWORD')
-    trunk_list = svn.list('svn://REPO/PATH/trunk')
-    trunk_list.each { |item| puts item }
+    $ bundle
 
-#### Methods ####
-- list
-- info
-- log
-- checkout
-- export
+Or install it yourself as:
 
+    $ gem install asvn
+
+## Usage
+
+TODO: Write usage instructions here
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request

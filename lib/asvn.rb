@@ -2,6 +2,7 @@ require 'svn/core'
 require 'svn/client'
 require 'svn/wc'
 require 'svn/repos'
+require 'asvn/version'
 
 module ASVN
   class Asvn
@@ -9,7 +10,6 @@ module ASVN
     attr_accessor :login
     attr_accessor :password
     attr_accessor :scc
-    @VERSION = 0.0.1
 
     def initialize(login,password)
       @login = login
@@ -20,12 +20,9 @@ module ASVN
       @scc.auth_baton[Svn::Core::AUTH_PARAM_DEFAULT_PASSWORD] = @password
     end
 
-    def version
-      @VERSION
-    end
-
     #svn list svn://uri
     def list(repos_uri, revision='HEAD')
+      repos_uri = Svn::Core.path_canonicalize(repos_uri)
       revision == 'HEAD' ? revision : revision.to_i!
       list = []
       @scc.list(repos_uri, revision) { |path, dirent, lock, abs_path|
@@ -38,6 +35,8 @@ module ASVN
 
     #svn export svn://uri
     def export(repos_uri, output_dir, revision='HEAD')
+      repos_uri = Svn::Core.path_canonicalize(repos_uri)
+      output_dir = Svn::Core.path_canonicalize(output_dir)
       revision == 'HEAD' ? revision : revision.to_i
       begin
         @scc.export(repos_uri, output_dir, revision)
@@ -53,6 +52,7 @@ module ASVN
     #puts("Last changed date: #{info.last_changed_date}")
     #puts("Kind: #{info.kind}")
     def info(repos_uri, revision='HEAD')
+      repos_uri = Svn::Core.path_canonicalize(repos_uri)
       revision == 'HEAD' ? revision : revision.to_i
       begin
         @scc.info(repos_uri, revision) { |path, info|
@@ -64,6 +64,8 @@ module ASVN
     end
 
     def checkout(repos_uri, output_dir, revision='HEAD')
+      repos_uri = Svn::Core.path_canonicalize(repos_uri)
+      output_dir = Svn::Core.path_canonicalize(output_dir)
       revision == 'HEAD' ? revision : revision.to_i
       begin
         @scc.checkout(repos_uri, output_dir, revision, nil)
@@ -73,6 +75,7 @@ module ASVN
     end
 
     def log(repos_uri, revision='HEAD')
+      repos_uri = Svn::Core.path_canonicalize(repos_uri)
       revision == 'HEAD' ? revision : revision.to_i
       list = {}
       @scc.log(repos_uri, 0, revision, 0, true, nil) { |changed_paths, rev, author, date, message|
