@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = ASVN::VERSION
   gem.authors       = ["alter"]
   gem.email         = ["alter.pub@gmail.com"]
-  gem.description   = %q{TODO: tiny svn wrapper}
-  gem.summary       = %q{TODO: gem for quick work with SVN}
+  gem.description   = %q{Tiny svn wrapper}
+  gem.summary       = %q{Gem for quick work with SVN}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
