@@ -6,9 +6,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'asvn'
 
 
-options = {user: 'asvn_user', password: 'asvn_password', uri: 'https://subversion.assembla.com/svn/asvn_example/trunk'}
+options = {user: 'asvn_user', password: 'asvn_password', uri: 'https://subversion.assembla.com/svn/asvn_example'}
 
-svn = ASVN::Asvn.new(options[:user],options[:password])
+svn = ASVN::Asvn.new(options[:user], options[:password])
 
 puts "svn list: "
 trunk_list = svn.list(options[:uri])

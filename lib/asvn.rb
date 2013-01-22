@@ -1,15 +1,15 @@
+require 'rubygems'
 require 'svn/core'
 require 'svn/client'
 require 'svn/wc'
-require 'svn/repos'
+#require 'svn/repos'
 require 'asvn/version'
 
 module ASVN
-  class Asvn
-
+  class Asvn < Svn::Client::Context
     attr_accessor :login
     attr_accessor :password
-    attr_accessor :scc
+    attr_reader :scc
 
     def initialize(login,password)
       @login = login
