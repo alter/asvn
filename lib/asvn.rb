@@ -5,8 +5,11 @@ require 'svn/wc'
 #require 'svn/repos'
 require 'asvn/version'
 
+
 module ASVN
-  class Asvn < Svn::Client::Context
+  include Svn
+  
+  class Asvn
     attr_accessor :login
     attr_accessor :password
     attr_reader :scc
