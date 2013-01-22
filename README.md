@@ -1,6 +1,9 @@
 # Asvn
 
-TODO: Write a gem description
+### Requiremens  
+- Redhat and Fedora: **yum install subversion-ruby**  
+- Ubuntu and Debian: **apt-get install libsvn-ruby**  
+- OS X: **sudo port install subversion-rubybindings**  
 
 ## Installation
 
@@ -18,7 +21,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Example of usage you can find in test/test.rb
+
+## Ready methods
+
+svn list
+svn info
+svn log
+svn export
+svn checkout
+
+## TODO
+
+svn add
+svn revert
+svn delete
+svn commit
+svn update
+svn status
+svn diff
 
 ## Contributing
 
