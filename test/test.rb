@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 # -*- encoding: utf-8 -*-
 
-lib = File.expand_path('../lib', File.dirname(__FILE__))
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+#lib = File.expand_path('../lib', File.dirname(__FILE__))
+#$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'asvn'
 
 
